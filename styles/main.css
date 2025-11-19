@@ -44,8 +44,8 @@
 /* Animations légèrement ajustées sur mobile */
 @media (max-width: 768px) {
     :root {
-        --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition: all 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Ralentir légèrement tous les fadeInUp */
@@ -60,17 +60,17 @@
     .stat-item,
     .institution-card,
     .topic {
-        animation-duration: 1.05s !important;
+        animation-duration: 0.95s !important;
     }
 
     /* Ralentir légèrement le carrousel */
     .carousel-track {
-        animation-duration: 21s !important;
+        animation-duration: 21.5s !important;
     }
 
     /* Ralentir légèrement les float animations */
     .gradient-circle {
-        animation-duration: 9.5s !important;
+        animation-duration: 9.8s !important;
     }
 }
 
