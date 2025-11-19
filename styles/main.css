@@ -1072,54 +1072,58 @@ section {
 }
 
 /* ============================================
-   TRAVAILLONS ENSEMBLE SECTION (CALENDLY)
+   CONTACT OPTIONS
    ============================================ */
 
-.ensemble {
-    padding: 4rem 0;
-    background: white;
-    border-top: 1px solid var(--border);
+.contact-options {
+    margin-bottom: 4rem;
 }
 
-@media (min-width: 768px) {
-    .ensemble {
-        padding: 10rem 0 8rem;
-    }
-}
-
-.calendly-container {
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
     max-width: 900px;
-    margin: 4rem auto 0;
-    background: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border);
+    margin: 3rem auto;
 }
 
-.calendly-container iframe {
-    border: none;
-    display: block;
+.contact-method {
+    background: linear-gradient(135deg, #f8f7f5 0%, #fff 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-method:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.contact-method h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+}
+
+.contact-method p {
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+}
+
+.contact-method a {
+    display: inline-block;
 }
 
 @media (max-width: 768px) {
-    .calendly-container {
-        margin: 2rem auto 0;
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
-    .calendly-container iframe {
-        height: 800px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .calendly-container {
-        margin: 1.5rem auto 0;
-        border-radius: 8px;
-    }
-
-    .calendly-container iframe {
-        height: 900px !important;
+    .contact-method {
+        padding: var(--spacing-md);
     }
 }
 
