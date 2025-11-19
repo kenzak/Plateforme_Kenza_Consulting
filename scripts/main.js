@@ -12,9 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger) {
-        hamburger.addEventListener('click', () => {
+        // Handle both click and touch for better mobile support
+        const toggleMenu = () => {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
+        };
+
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            toggleMenu();
         });
 
         // Close menu when clicking on a link
