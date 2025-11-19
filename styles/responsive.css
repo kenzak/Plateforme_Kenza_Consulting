@@ -1,0 +1,542 @@
+/* ============================================
+   RESPONSIVE DESIGN - Mobile First
+   ============================================ */
+
+/* Import Google Fonts (Optionnel mais recommandé) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+/* ============================================
+   TABLET (768px and up)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    :root {
+        --spacing-xl: 3rem;
+        --spacing-lg: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1.02);
+    }
+}
+
+/* ============================================
+   TABLET (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-lg: 1.5rem;
+        --spacing-md: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .navbar-content {
+        padding: 1rem 0;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 0;
+        gap: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .hero-content p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    /* About */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .stat {
+        padding: 1.8rem;
+    }
+
+    .stat h3 {
+        font-size: 2.2rem;
+    }
+
+    /* Services, Portfolio, Pricing */
+    .services-grid,
+    .portfolio-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+
+    .service-card,
+    .pricing-card {
+        padding: 2rem;
+    }
+
+    /* Pricing Featured */
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    /* Contact */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        order: -1;
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Portfolio */
+    .portfolio-item {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .portfolio-image {
+        height: 200px;
+    }
+}
+
+/* ============================================
+   MOBILE (480px and below)
+   ============================================ */
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-xl: 1.5rem;
+        --spacing-lg: 1rem;
+        --spacing-md: 1rem;
+    }
+
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    /* Navbar */
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+
+    .navbar-content {
+        padding: 0.8rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-image {
+        margin-top: 1.5rem;
+    }
+
+    /* Buttons */
+    .cta-button,
+    .cta-button-secondary {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* About */
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .values-list li {
+        font-size: 0.95rem;
+        padding: 0.8rem 0;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .stat {
+        padding: 1.5rem;
+    }
+
+    .stat h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat p {
+        font-size: 0.9rem;
+    }
+
+    /* Services */
+    .service-card {
+        padding: 1.8rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .service-features li {
+        font-size: 0.9rem;
+    }
+
+    /* Portfolio */
+    .portfolio-image {
+        height: 180px;
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .portfolio-item p {
+        font-size: 0.9rem;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0 0.3rem 1rem 1rem;
+    }
+
+    /* Pricing */
+    .pricing-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .pricing-card {
+        padding: 1.8rem;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .duration {
+        font-size: 0.9rem;
+    }
+
+    .features li {
+        padding: 0.6rem 0;
+        font-size: 0.9rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+        top: -12px;
+    }
+
+    /* Contact */
+    .contact-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 0.8rem;
+        font-size: 16px; /* Prévient zoom iOS */
+    }
+
+    .contact-form button {
+        padding: 1rem;
+    }
+
+    .info-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .info-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .info-item p {
+        font-size: 0.95rem;
+    }
+
+    .socials {
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 2rem 0;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .footer-ethics {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   SMALL MOBILE (max 360px)
+   ============================================ */
+
+@media (max-width: 360px) {
+    :root {
+        --spacing-xl: 1rem;
+        --spacing-lg: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 1.8rem;
+    }
+
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-button,
+    .cta-button-secondary {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .navbar,
+    .footer,
+    .cta-button,
+    .contact,
+    .hamburger {
+        display: none;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    body {
+        font-size: 12pt;
+        color: black;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+    :root {
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .cta-button {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Focus Visible for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Sticky Hover for Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover,
+    .portfolio-item:hover,
+    .stat:hover {
+        transform: none;
+    }
+
+    .cta-button:active {
+        transform: scale(0.98);
+    }
+}

@@ -1,0 +1,196 @@
+{
+  "siteInfo": {
+    "title": "Kenza.Consulting",
+    "shortTitle": "Kenza.Consulting",
+    "description": "Services en marketing digital éthique - Stratégie, contenu et engagement authentique pour votre marque",
+    "author": "Kenza",
+    "email": "contact@mdethique.fr",
+    "phone": "+33 6 12 34 56 78",
+    "location": "France",
+    "website": "https://votre-domaine.fr"
+  },
+  "colors": {
+    "primary": "#2d5a8c",
+    "primaryDark": "#1e3f5a",
+    "primaryLight": "#4a7ba7",
+    "accent": "#e74c3c",
+    "success": "#27ae60"
+  },
+  "services": [
+    {
+      "id": "strategie",
+      "title": "Stratégie Digital",
+      "icon": "📊",
+      "description": "Audit complet de votre présence en ligne et création d'une stratégie personnalisée alignée avec vos objectifs métier.",
+      "features": [
+        "Audit de présence digitale",
+        "Analyse concurrentielle",
+        "Plan d'action sur 12 mois"
+      ]
+    },
+    {
+      "id": "contenu",
+      "title": "Création de Contenu",
+      "icon": "✍️",
+      "description": "Production de contenus écrits, visuels et vidéo authentiques qui engagent votre audience et renforcent votre crédibilité.",
+      "features": [
+        "Articles et blog posts",
+        "Contenus réseaux sociaux",
+        "Copywriting persuasif"
+      ]
+    },
+    {
+      "id": "reseaux",
+      "title": "Gestion Réseaux Sociaux",
+      "icon": "📱",
+      "description": "Gestion complète de vos comptes (publication, engagement, communauté) avec une approche authentique et respectueuse.",
+      "features": [
+        "Planning et calendrier éditorial",
+        "Gestion communauté",
+        "Analytics et reporting"
+      ]
+    },
+    {
+      "id": "seo",
+      "title": "SEO Éthique",
+      "icon": "🔍",
+      "description": "Optimisation moteurs de recherche respectant les bonnes pratiques, sans techniques manipulatrices ou 'black hat'.",
+      "features": [
+        "Recherche de mots-clés",
+        "Optimisation on-page",
+        "Netlinking de qualité"
+      ]
+    },
+    {
+      "id": "branding",
+      "title": "Personal Branding",
+      "icon": "💼",
+      "description": "Construction d'une marque personnelle forte et authentique qui vous positionne en tant qu'expert de votre domaine.",
+      "features": [
+        "Positionnement stratégique",
+        "Image et storytelling",
+        "Présence LinkedIn"
+      ]
+    },
+    {
+      "id": "email",
+      "title": "Email Marketing",
+      "icon": "📧",
+      "description": "Campagnes email personnalisées et respectueuses pour maintenir une relation durable avec votre audience.",
+      "features": [
+        "Segmentation audience",
+        "Automations éthiques",
+        "Optimisation conversions"
+      ]
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "title": "Musc Pay - Compte de Paiement Éthique",
+      "description": "Repositionnement de marque vers un univers visuel & narratif unique. Campagne d'influence multi-profil avec 5 créateurs (727K vues cumulées). Résultats : +25% croissance des abonnés, x4 ouvertures de comptes, +10K mails collectés.",
+      "tags": ["Rebranding", "Influence", "Finance Islamique"],
+      "results": "+25% followers, x4 account openings"
+    },
+    {
+      "id": 2,
+      "title": "MyZawajMatch - Structuration Projet Tech & Éducatif",
+      "description": "Structuration complète d'un projet app + plateforme e-learning. Audit stratégique, modèle économique, packaging des offres avec logique UX fluide et engageante.",
+      "tags": ["Tech", "Éducation", "Stratégie Tarifaire"],
+      "results": "Architecture complète du projet"
+    },
+    {
+      "id": 3,
+      "title": "Can-Am Off-Road - Gestion Contenu E-commerce & Social",
+      "description": "Supervision création contenus e-commerce et social media. Calendrier éditorial pour concessionnaires. Gestion stratégie lancement gamme 2021 (budget 60K$).",
+      "tags": ["E-commerce", "Social Media", "Automotive"],
+      "results": "Contenu cohérent multi-canaux"
+    },
+    {
+      "id": 4,
+      "title": "Philips Sonicare - Stratégie 360° & Acquisition",
+      "description": "Accroissement notoriété et visibilité Philips Sonicare. Refonte globale sites BtoB/BtoC, stratégie communication 360°. Campagne d'influence (budget 50K€, ROI x4). Gestion e-commerce Amazon & Philips Store.",
+      "tags": ["E-commerce", "Influence", "PR", "Santé"],
+      "results": "ROI x4 sur campagne influence"
+    }
+  ],
+  "pricing": [
+    {
+      "id": 1,
+      "name": "Consultation",
+      "price": 150,
+      "currency": "€",
+      "period": "par heure",
+      "featured": false,
+      "badge": null,
+      "description": null,
+      "features": [
+        "Audit et recommandations",
+        "Questions stratégiques",
+        "Plan d'action"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Partenariat Mensuel",
+      "price": 1500,
+      "currency": "€",
+      "period": "à partir de 20h/mois",
+      "featured": true,
+      "badge": "Populaire",
+      "description": null,
+      "features": [
+        "Stratégie et planification",
+        "Production de contenu",
+        "Gestion réseaux sociaux",
+        "Reporting mensuel",
+        "Disponibilité dédiée"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Projet Spécifique",
+      "price": null,
+      "currency": null,
+      "period": "selon ampleur",
+      "featured": false,
+      "badge": null,
+      "priceText": "Sur devis",
+      "features": [
+        "Rebranding complet",
+        "Lancement de campagne",
+        "Développement complet"
+      ]
+    }
+  ],
+  "about": {
+    "heading": "Qui Suis-Je ?",
+    "intro": "Je suis Kenza, consultante marketing et stratégie digitale, basée à Paris. À travers mon activité, j'accompagne les entrepreneurs et marques dans le développement de leur présence en ligne et la création de marques durables.",
+    "description": "Avec plusieurs années d'expériences en France et au Canada, j'ai eu l'opportunité de collaborer avec de grands groupes et des start-up. Passionnée par la pédagogie, j'explore également la formation pour partager les techniques et savoir-faire acquis au fil de mes expériences sur le terrain. Aujourd'hui, j'accompagne aussi bien des marques établies que des créateurs de contenu désireux de maximiser leur impact et d'atteindre leurs objectifs.",
+    "expertise": "Issue du terrain, j'ai travaillé plusieurs années en tant que conseillère de vente dans des maisons et boutiques de luxe (Groupe Chanel, Mackage, Tommy Hilfiger, Maison Ullens...), ce qui m'a donné un œil aiguisé sur les codes, les attentes clients et l'importance du détail dans l'expérience de marque. Esthétique, rigueur et storytelling sont au cœur de ma méthode. Je combine sens du terrain et vision stratégique pour amplifier l'image des marques.",
+    "values": [
+      "Bienveillance - Le marketing peut se faire avec douceur, sans compromettre notre identité",
+      "Authenticité - Être unique et refléter une personnalité unique, partout",
+      "Excellence - Écouter et prendre le temps de comprendre vos besoins réels"
+    ],
+    "stats": [
+      {
+        "number": "5+",
+        "label": "Années d'expérience"
+      },
+      {
+        "number": "Multiple secteurs",
+        "label": "Automobile, Bijouterie, Santé, Finance, Tech..."
+      },
+      {
+        "number": "France & Canada",
+        "label": "Expérience internationale"
+      }
+    ]
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/votre-profil",
+    "twitter": "https://twitter.com/votre-compte",
+    "instagram": "https://instagram.com/votre-compte"
+  }
+}

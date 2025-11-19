@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog - Articles sur le marketing digital éthique">
+    <title>Blog - Kenza.Consulting</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <h1>Kenza.Consulting</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#apropos">À Propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Blog -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Blog</h1>
+            <p>Articles et conseils sur le marketing digital éthique</p>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">19 Nov 2024</span>
+                        <span class="blog-category">Marketing</span>
+                    </div>
+                    <h2><a href="article1.html">Les 5 Principes du Marketing Éthique</a></h2>
+                    <p>Découvrez comment construire une stratégie marketing authentique qui respecte vos clients et crée une confiance durable...</p>
+                    <a href="article1.html" class="read-more">Lire l'article →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">12 Nov 2024</span>
+                        <span class="blog-category">Contenu</span>
+                    </div>
+                    <h2><a href="article2.html">Créer du Contenu Authentique : Guide Complet</a></h2>
+                    <p>Comment produire du contenu qui résonne vraiment avec votre audience, sans faire du marketing manipulateur...</p>
+                    <a href="article2.html" class="read-more">Lire l'article →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">5 Nov 2024</span>
+                        <span class="blog-category">SEO</span>
+                    </div>
+                    <h2><a href="article3.html">SEO Éthique vs Black Hat : Pourquoi Choisir le Durable</a></h2>
+                    <p>Les techniques de SEO "black hat" peuvent apporter des résultats rapides, mais au prix de votre réputation. Voici pourquoi l'éthique paie...</p>
+                    <a href="article3.html" class="read-more">Lire l'article →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">29 Oct 2024</span>
+                        <span class="blog-category">Réseaux Sociaux</span>
+                    </div>
+                    <h2><a href="article4.html">Construire une Communauté Authentique sur les Réseaux Sociaux</a></h2>
+                    <p>Au-delà des chiffres, comment créer une vraie communauté engagée qui vous soutient vraiment...</p>
+                    <a href="article4.html" class="read-more">Lire l'article →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">22 Oct 2024</span>
+                        <span class="blog-category">Business</span>
+                    </div>
+                    <h2><a href="article5.html">RGPD et Privacy : Protéger vos Clients c'est Bon pour le Business</a></h2>
+                    <p>Loin d'être une contrainte, le respect de la vie privée est un atout concurrentiel majeur dans le marketing moderne...</p>
+                    <a href="article5.html" class="read-more">Lire l'article →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date">15 Oct 2024</span>
+                        <span class="blog-category">Stratégie</span>
+                    </div>
+                    <h2><a href="article6.html">De la Quantité à la Qualité : Pourquoi Moins c'est Mieux</a></h2>
+                    <p>Comment passer d'une approche basée sur le volume à une stratégie de qualité qui génère vraiment des résultats...</p>
+                    <a href="article6.html" class="read-more">Lire l'article →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Recevez les Nouveaux Articles</h2>
+            <p>Inscrivez-vous à ma newsletter pour recevoir mes conseils en marketing éthique directement dans votre boîte mail</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit" class="cta-button">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Kenza.Consulting. Tous droits réservés.</p>
+            <p class="footer-ethics">Engagement éthique : Transparence, respect des données, marketing responsable</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Newsletter form handling
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                console.log('Newsletter subscription:', email);
+
+                // Show success message
+                if (typeof showNotification === 'function') {
+                    showNotification('Merci ! Vous allez recevoir nos nouveaux articles.', 'success');
+                    newsletterForm.reset();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+<style>
+/* Blog specific styles */
+.blog-hero {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    color: white;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.blog-hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.blog-hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+.blog-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.blog-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.blog-date {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.blog-category {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.blog-card h2 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+}
+
+.blog-card h2 a {
+    color: inherit;
+    transition: var(--transition);
+}
+
+.blog-card h2 a:hover {
+    color: var(--color-primary);
+}
+
+.blog-card p {
+    color: var(--color-text-light);
+    flex-grow: 1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    color: var(--color-primary-light);
+    transform: translateX(5px);
+}
+
+.newsletter {
+    background: var(--color-bg-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.newsletter h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.newsletter p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: var(--spacing-sm);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.newsletter-form button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .blog-hero h1 {
+        font-size: 2rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+</style>
