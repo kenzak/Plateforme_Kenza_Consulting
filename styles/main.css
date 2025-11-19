@@ -1072,6 +1072,58 @@ section {
 }
 
 /* ============================================
+   TRAVAILLONS ENSEMBLE SECTION (CALENDLY)
+   ============================================ */
+
+.ensemble {
+    padding: 4rem 0;
+    background: white;
+    border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .ensemble {
+        padding: 10rem 0 8rem;
+    }
+}
+
+.calendly-container {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.calendly-container iframe {
+    border: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .calendly-container {
+        margin: 2rem auto 0;
+    }
+
+    .calendly-container iframe {
+        height: 800px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendly-container {
+        margin: 1.5rem auto 0;
+        border-radius: 8px;
+    }
+
+    .calendly-container iframe {
+        height: 900px !important;
+    }
+}
+
+/* ============================================
    CTA SECTION
    ============================================ */
 
