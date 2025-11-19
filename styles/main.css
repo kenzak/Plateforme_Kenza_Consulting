@@ -76,8 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     letter-spacing: -0.5px;
+    color: var(--primary-dark);
+    position: relative;
+    display: inline-block;
 }
 
 h3 {
@@ -210,13 +214,16 @@ section {
    ============================================ */
 
 .hero {
-    padding-top: 8rem;
-    padding-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
 }
 
 .hero-content {
@@ -278,6 +285,126 @@ section {
     font-size: 1.1rem;
 }
 
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(184, 149, 111, 0.08);
+    border: 1px solid rgba(184, 149, 111, 0.2);
+    border-radius: 50px;
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--accent);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.badge-icon {
+    font-size: 1.1rem;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.8s ease 0.8s forwards;
+    opacity: 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(184, 149, 111, 0.15);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease 1s forwards;
+    opacity: 0;
+    flex-wrap: wrap;
+}
+
+.cta-button.primary {
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--accent);
+}
+
+.cta-button.primary:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(184, 149, 111, 0.3);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.cta-button.secondary:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(184, 149, 111, 0.2);
+}
+
+.hero-trusted-by {
+    animation: fadeInUp 0.8s ease 1.2s forwards;
+    opacity: 0;
+}
+
+.hero-trusted-by > p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.brand-logos-mini {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brand-logos-mini img {
+    height: 50px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: var(--transition);
+    filter: grayscale(100%);
+}
+
+.brand-logos-mini img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
 .hero-background {
     position: absolute;
     top: 0;
@@ -329,7 +456,8 @@ section {
 
 .about {
     background: var(--bg-subtle);
-    padding-top: 8rem;
+    padding-top: 10rem;
+    padding-bottom: 8rem;
 }
 
 .about-grid {
@@ -420,7 +548,11 @@ section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
-    margin-top: 4rem;
+    margin-top: 6rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(184, 149, 111, 0.05) 0%, rgba(184, 149, 111, 0.02) 100%);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(184, 149, 111, 0.1);
 }
 
 .stat-item {
@@ -429,23 +561,49 @@ section {
     background: white;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(184, 149, 111, 0.1);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.stat-item:hover::before {
+    transform: scaleX(1);
 }
 
 .stat-item:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(184, 149, 111, 0.15);
+    transform: translateY(-8px);
+    border-color: var(--accent);
 }
 
 .stat-item h3 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--accent);
     margin-bottom: var(--spacing-sm);
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
 .stat-item p {
     margin: 0;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ============================================
@@ -491,15 +649,15 @@ section {
    ============================================ */
 
 .portfolio {
-    padding: 8rem 0;
+    padding: 10rem 0 8rem;
     background: white;
 }
 
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    margin-top: 3rem;
+    gap: 3rem;
+    margin-top: 4rem;
 }
 
 .portfolio-card {
@@ -614,15 +772,15 @@ section {
    ============================================ */
 
 .formations {
-    padding: 8rem 0;
+    padding: 10rem 0 8rem;
     background: white;
 }
 
 .formations-intro {
     max-width: 800px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 5rem;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.9;
 }
@@ -749,15 +907,15 @@ section {
    ============================================ */
 
 .services {
-    padding: 8rem 0;
+    padding: 10rem 0 8rem;
     background: var(--bg-subtle);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    margin-top: 3rem;
+    gap: 2.5rem;
+    margin-top: 4rem;
 }
 
 .service-card {
@@ -794,11 +952,11 @@ section {
    ============================================ */
 
 .cta-section {
-    padding: 8rem var(--spacing-md);
+    padding: 6rem var(--spacing-md);
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     text-align: center;
     border-radius: var(--border-radius);
-    margin: 4rem;
+    margin: 6rem 4rem;
 }
 
 .cta-section h2 {
@@ -824,13 +982,13 @@ section {
    ============================================ */
 
 .contact {
-    padding: 8rem 0;
+    padding: 10rem 0 8rem;
     background: white;
 }
 
 .contact-form {
     max-width: 600px;
-    margin: 3rem auto;
+    margin: 4rem auto;
     display: grid;
     gap: var(--spacing-md);
 }
@@ -1015,6 +1173,24 @@ section {
         font-size: 1.1rem;
     }
 
+    .hero-cta-group {
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .brand-logos-mini {
+        gap: 1.5rem;
+    }
+
+    .brand-logos-mini img {
+        height: 40px;
+    }
+
     h2 {
         font-size: 2rem;
     }
@@ -1025,6 +1201,12 @@ section {
 
     .stats-section {
         grid-template-columns: 1fr;
+        padding: 2rem;
+        margin-top: 4rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2.5rem;
     }
 
     .footer-content {
@@ -1070,6 +1252,62 @@ section {
 
     .hero-title {
         font-size: 1.8rem;
+    }
+
+    .hero-badge {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-benefits {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .benefit-item {
+        font-size: 0.95rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .brand-logos-mini {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .brand-logos-mini img {
+        height: 35px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .stat-item {
+        padding: var(--spacing-md);
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    .stat-item p {
+        font-size: 0.85rem;
     }
 
     .nav-menu {
