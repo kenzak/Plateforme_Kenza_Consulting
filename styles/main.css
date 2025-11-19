@@ -1081,10 +1081,11 @@ section {
 
 .contact-methods {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
-    max-width: 900px;
+    max-width: 500px;
     margin: 3rem auto;
+    justify-items: center;
 }
 
 .contact-method {
@@ -1094,6 +1095,8 @@ section {
     border: 1px solid var(--border);
     text-align: center;
     transition: var(--transition);
+    width: 100%;
+    max-width: 450px;
 }
 
 .contact-method:hover {
