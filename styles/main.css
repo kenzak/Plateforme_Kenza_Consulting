@@ -115,11 +115,24 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 1rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
 }
 
 section {
-    padding: 6rem 0;
+    padding: 3rem 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 6rem 0;
+    }
 }
 
 .section-subtitle {
@@ -214,16 +227,24 @@ section {
    ============================================ */
 
 .hero {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding-top: 6rem;
+        padding-bottom: 8rem;
+        min-height: 100vh;
+    }
 }
 
 .hero-content {
@@ -480,9 +501,16 @@ section {
 
 .about {
     background: var(--bg-subtle);
-    padding-top: 10rem;
-    padding-bottom: 8rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .about {
+        padding-top: 10rem;
+        padding-bottom: 8rem;
+    }
 }
 
 .about-grid {
@@ -675,9 +703,15 @@ section {
    ============================================ */
 
 .portfolio {
-    padding: 10rem 0 8rem;
+    padding: 4rem 0;
     background: white;
     border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .portfolio {
+        padding: 10rem 0 8rem;
+    }
 }
 
 .portfolio-grid {
@@ -799,9 +833,15 @@ section {
    ============================================ */
 
 .formations {
-    padding: 10rem 0 8rem;
+    padding: 4rem 0;
     background: white;
     border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .formations {
+        padding: 10rem 0 8rem;
+    }
 }
 
 .formations-intro {
@@ -935,9 +975,15 @@ section {
    ============================================ */
 
 .services {
-    padding: 10rem 0 8rem;
+    padding: 4rem 0;
     background: var(--bg-subtle);
     border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .services {
+        padding: 10rem 0 8rem;
+    }
 }
 
 .services-grid {
@@ -1013,9 +1059,15 @@ section {
    ============================================ */
 
 .contact {
-    padding: 10rem 0 8rem;
+    padding: 4rem 0;
     background: white;
     border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .contact {
+        padding: 10rem 0 8rem;
+    }
 }
 
 .contact-form {
