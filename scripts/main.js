@@ -250,20 +250,27 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Initialize
     updateCarousel();
 
+    // Calculate how many slides we have
+    const numSlides = Math.ceil(cards.length / cardsPerSlide);
+
     // Direct button clicks
     document.querySelectorAll('.carousel-prev').forEach(btn => {
         btn.addEventListener('click', () => {
-            const maxStart = Math.max(0, cards.length - cardsPerSlide);
-            current = Math.max(0, current - cardsPerSlide);
-            updateCarousel();
+            const slideIndex = Math.floor(current / cardsPerSlide);
+            if (slideIndex > 0) {
+                current -= cardsPerSlide;
+                updateCarousel();
+            }
         });
     });
 
     document.querySelectorAll('.carousel-next').forEach(btn => {
         btn.addEventListener('click', () => {
-            const maxStart = Math.max(0, cards.length - cardsPerSlide);
-            current = Math.min(maxStart, current + cardsPerSlide);
-            updateCarousel();
+            const slideIndex = Math.floor(current / cardsPerSlide);
+            if (slideIndex < numSlides - 1) {
+                current += cardsPerSlide;
+                updateCarousel();
+            }
         });
     });
 
