@@ -1287,6 +1287,7 @@ section > .container > .section-subtitle {
     transition: var(--transition);
     text-align: center;
     width: fit-content;
+    margin-top: auto;
 }
 
 .testimonial-btn:hover {
