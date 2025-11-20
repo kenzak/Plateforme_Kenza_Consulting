@@ -884,17 +884,6 @@ section > .container > .section-subtitle {
     transform: translateY(20px);
 }
 
-@media (min-width: 768px) {
-    .portfolio-card {
-        min-width: calc(50% - 1rem);
-    }
-}
-
-@media (min-width: 1024px) {
-    .portfolio-card {
-        min-width: calc(50% - 1rem);
-    }
-}
 
 .portfolio-card.active {
     opacity: 1;
@@ -1237,17 +1226,6 @@ section > .container > .section-subtitle {
     transform: translateY(20px);
 }
 
-@media (min-width: 768px) {
-    .testimonial-card {
-        min-width: calc(50% - 1rem);
-    }
-}
-
-@media (min-width: 1024px) {
-    .testimonial-card {
-        min-width: calc(33.333% - 1.35rem);
-    }
-}
 
 .testimonial-card.active {
     opacity: 1;
