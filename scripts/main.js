@@ -240,10 +240,14 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
 
+    console.log(`Buttons found: prevBtn=${!!prevBtn}, nextBtn=${!!nextBtn}`);
+
     // Find indicators - they are outside the container in a sibling element
     const parentContainer = container.parentElement;
     const indicatorsDiv = parentContainer.querySelector('.carousel-indicators');
     const indicators = indicatorsDiv ? indicatorsDiv.querySelectorAll('.indicator') : [];
+
+    console.log(`Indicators found: ${indicators.length}`);
 
     function showSlide(n) {
         if (n < 0) n = 0;
