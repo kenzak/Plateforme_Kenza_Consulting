@@ -247,10 +247,20 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
         currentSlide = n;
 
         // Update active classes
-        cards.forEach(card => card.classList.remove('active'));
+        cards.forEach((card, index) => {
+            card.classList.remove('active');
+            if (index !== n) {
+                // Reset inline styles for non-active cards (set by Intersection Observer)
+                card.style.opacity = '';
+                card.style.transform = '';
+            }
+        });
         indicators.forEach(ind => ind.classList.remove('active'));
 
+        // Apply active state and remove inline styles
         cards[n].classList.add('active');
+        cards[n].style.opacity = '';
+        cards[n].style.transform = '';
         if (indicators[n]) indicators[n].classList.add('active');
 
         // Use transform to translate the carousel
