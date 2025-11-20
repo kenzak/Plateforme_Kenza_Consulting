@@ -221,7 +221,7 @@ function showNotification(message, type = 'success') {
 // CAROUSELS (Testimonials & Portfolio)
 // ============================================
 
-// Simple carousel with arrow buttons only
+// Carousel showing 3 cards at once with arrow buttons only
 function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const carousel = document.querySelector(carouselSelector);
     const container = document.querySelector(containerSelector);
@@ -230,11 +230,12 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     if (!carousel || !container || cards.length === 0) return;
 
     let current = 0;
+    const cardsPerView = 3;
 
     function updateCarousel() {
         cards.forEach((card, i) => {
-            card.style.display = i === current ? 'block' : 'none';
-            card.classList.toggle('active', i === current);
+            const isVisible = i >= current && i < current + cardsPerView;
+            card.style.display = isVisible ? 'block' : 'none';
         });
     }
 
@@ -244,7 +245,9 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Previous button
     document.querySelectorAll('.carousel-prev').forEach(btn => {
         btn.addEventListener('click', () => {
-            current = (current - 1 + cards.length) % cards.length;
+            if (current > 0) {
+                current--;
+            }
             updateCarousel();
         });
     });
@@ -252,7 +255,10 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Next button
     document.querySelectorAll('.carousel-next').forEach(btn => {
         btn.addEventListener('click', () => {
-            current = (current + 1) % cards.length;
+            const maxStart = Math.max(0, cards.length - cardsPerView);
+            if (current < maxStart) {
+                current++;
+            }
             updateCarousel();
         });
     });
