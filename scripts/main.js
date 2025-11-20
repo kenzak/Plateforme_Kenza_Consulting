@@ -234,7 +234,11 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     let currentSlide = 0;
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
-    const indicators = container.querySelectorAll('.indicator');
+
+    // Find indicators - they are outside the container in a sibling element
+    const parentContainer = container.parentElement;
+    const indicatorsDiv = parentContainer.querySelector('.carousel-indicators');
+    const indicators = indicatorsDiv ? indicatorsDiv.querySelectorAll('.indicator') : [];
 
     function showSlide(n) {
         if (n < 0) n = 0;
@@ -250,12 +254,8 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
         if (indicators[n]) indicators[n].classList.add('active');
 
         // Use transform to translate the carousel
-        // Calculate the offset: each card takes up its own width plus gap
-        const cardWidth = cards[0].offsetWidth;
-        const gapValue = 2; // 2rem gap = 32px (assuming 1rem = 16px)
-        const gap = gapValue * 16;
-        const offset = n * (cardWidth + gap);
-
+        // Get the actual position of the card element
+        const offset = cards[n].offsetLeft;
         carousel.style.transform = `translateX(-${offset}px)`;
     }
 
