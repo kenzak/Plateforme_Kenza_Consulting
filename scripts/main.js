@@ -297,12 +297,14 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Event listeners
     if (prevBtn) {
         prevBtn.addEventListener('click', (e) => {
+            console.log('Prev button clicked!');
             e.preventDefault();
             prevSlide();
         });
     }
     if (nextBtn) {
         nextBtn.addEventListener('click', (e) => {
+            console.log('Next button clicked!');
             e.preventDefault();
             nextSlide();
         });
