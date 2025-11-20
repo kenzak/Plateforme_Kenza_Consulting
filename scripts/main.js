@@ -300,18 +300,22 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     });
 }
 
+let carouselsInitialized = false;
+
+function initializeCarousels() {
+    if (carouselsInitialized) return;
+    carouselsInitialized = true;
+
+    initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
+    initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize carousels after layout is calculated
-    setTimeout(() => {
-        initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
-        initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
-    }, 50);
+    // Initialize carousels after a small delay for layout calculation
+    setTimeout(initializeCarousels, 50);
 });
 
-// Also initialize on load to ensure images are loaded
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
-        initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
-    }, 100);
-});
+// If page is already loaded (for edge cases), initialize immediately
+if (document.readyState === 'complete') {
+    initializeCarousels();
+}
