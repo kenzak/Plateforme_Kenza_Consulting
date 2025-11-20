@@ -1252,6 +1252,17 @@ section > .container > .section-subtitle {
 
 .testimonial-header {
     margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .testimonial-header h4 {
