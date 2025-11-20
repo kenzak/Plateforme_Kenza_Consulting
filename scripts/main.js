@@ -226,100 +226,71 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const container = document.querySelector(containerSelector);
     const cards = document.querySelectorAll(cardSelector);
 
-    if (!carousel || !container || cards.length === 0) {
-        console.log('Carousel init failed:', { carousel, container, cards: cards.length });
-        return;
-    }
-
-    console.log(`Carousel initialized: ${carouselSelector} with ${cards.length} cards`);
-    cards.forEach((card, i) => {
-        console.log(`  Card ${i}: ${card.textContent.substring(0, 30)}`);
-    });
+    if (!carousel || !container || cards.length === 0) return;
 
     let currentSlide = 0;
-    const prevBtn = container.querySelector('.carousel-prev');
-    const nextBtn = container.querySelector('.carousel-next');
-
-    console.log(`Buttons found: prevBtn=${!!prevBtn}, nextBtn=${!!nextBtn}`);
-
-    // Find indicators - they are outside the container in a sibling element
-    const parentContainer = container.parentElement;
-    const indicatorsDiv = parentContainer.querySelector('.carousel-indicators');
-    const indicators = indicatorsDiv ? indicatorsDiv.querySelectorAll('.indicator') : [];
-
-    console.log(`Indicators found: ${indicators.length}`);
 
     function showSlide(n) {
         if (n < 0) n = 0;
         if (n >= cards.length) n = cards.length - 1;
-
         currentSlide = n;
 
-        // Update active classes
+        // Update all cards
         cards.forEach((card, index) => {
-            card.classList.remove('active');
-            if (index !== n) {
-                // Reset inline styles for non-active cards (set by Intersection Observer)
+            if (index === n) {
+                card.classList.add('active');
                 card.style.opacity = '';
                 card.style.transform = '';
+            } else {
+                card.classList.remove('active');
             }
         });
-        indicators.forEach(ind => ind.classList.remove('active'));
 
-        // Apply active state and remove inline styles
-        cards[n].classList.add('active');
-        cards[n].style.opacity = '';
-        cards[n].style.transform = '';
-        if (indicators[n]) indicators[n].classList.add('active');
-
-        // Use transform to translate the carousel
-        // Calculate position based on card width and gap
+        // Calculate and apply transform
         const cardWidth = cards[0].offsetWidth;
         const styles = window.getComputedStyle(carousel);
-        const gapPixels = parseInt(styles.gap) || 32; // Default to 32px if gap can't be computed
+        const gapPixels = parseInt(styles.gap) || 32;
         const offset = n * (cardWidth + gapPixels);
-
         carousel.style.transform = `translateX(-${offset}px)`;
-    }
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % cards.length;
-        console.log(`Next slide: ${currentSlide} of ${cards.length}`);
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + cards.length) % cards.length;
-        console.log(`Prev slide: ${currentSlide} of ${cards.length}`);
-        showSlide(currentSlide);
-    }
-
-    // Event listeners
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            console.log('Prev button clicked!');
-            e.preventDefault();
-            prevSlide();
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            console.log('Next button clicked!');
-            e.preventDefault();
-            nextSlide();
+        // Update indicators
+        const parentContainer = container.parentElement;
+        const indicators = parentContainer.querySelectorAll('.carousel-indicators .indicator');
+        indicators.forEach((ind, index) => {
+            ind.classList.toggle('active', index === n);
         });
     }
 
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', (e) => {
-            e.preventDefault();
-            showSlide(index);
-        });
+    // Initialize
+    showSlide(0);
+
+    // Add click handlers with event delegation on parent
+    const parentContainer = container.parentElement;
+
+    // Buttons
+    parentContainer.addEventListener('click', (e) => {
+        if (e.target.closest('.carousel-prev')) {
+            currentSlide = (currentSlide - 1 + cards.length) % cards.length;
+            showSlide(currentSlide);
+        }
+        if (e.target.closest('.carousel-next')) {
+            currentSlide = (currentSlide + 1) % cards.length;
+            showSlide(currentSlide);
+        }
     });
 
-    // Initialize with a delay for proper layout calculation
-    window.requestAnimationFrame(() => {
-        setTimeout(() => showSlide(0), 0);
+    // Indicators
+    parentContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('indicator')) {
+            const index = Array.from(e.target.parentElement.children).indexOf(e.target);
+            showSlide(index);
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
     });
 }
 
