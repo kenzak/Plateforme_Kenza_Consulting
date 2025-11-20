@@ -263,17 +263,22 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
 
     // Initialize
     showSlide(0);
+    console.log(`✓ Carousel ready: ${cards.length} cards`);
 
     // Add click handlers with event delegation on parent
     const parentContainer = container.parentElement;
 
     // Buttons
     parentContainer.addEventListener('click', (e) => {
+        console.log('Click detected on:', e.target.className, e.target.tagName);
+
         if (e.target.closest('.carousel-prev')) {
+            console.log('PREV CLICKED');
             currentSlide = (currentSlide - 1 + cards.length) % cards.length;
             showSlide(currentSlide);
         }
         if (e.target.closest('.carousel-next')) {
+            console.log('NEXT CLICKED');
             currentSlide = (currentSlide + 1) % cards.length;
             showSlide(currentSlide);
         }
@@ -283,6 +288,7 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     parentContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('indicator')) {
             const index = Array.from(e.target.parentElement.children).indexOf(e.target);
+            console.log('INDICATOR CLICKED:', index);
             showSlide(index);
         }
     });
