@@ -231,6 +231,11 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
         return;
     }
 
+    console.log(`Carousel initialized: ${carouselSelector} with ${cards.length} cards`);
+    cards.forEach((card, i) => {
+        console.log(`  Card ${i}: ${card.textContent.substring(0, 30)}`);
+    });
+
     let currentSlide = 0;
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
@@ -275,11 +280,13 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
 
     function nextSlide() {
         currentSlide = (currentSlide + 1) % cards.length;
+        console.log(`Next slide: ${currentSlide} of ${cards.length}`);
         showSlide(currentSlide);
     }
 
     function prevSlide() {
         currentSlide = (currentSlide - 1 + cards.length) % cards.length;
+        console.log(`Prev slide: ${currentSlide} of ${cards.length}`);
         showSlide(currentSlide);
     }
 
