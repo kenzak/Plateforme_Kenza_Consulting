@@ -879,7 +879,7 @@ section > .container > .section-subtitle {
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     border: 1px solid var(--border);
-    min-width: 100%;
+    flex: 0 0 calc(33.333% - 1.35rem);
     opacity: 0;
     transform: translateY(20px);
 }
@@ -1232,7 +1232,7 @@ section > .container > .section-subtitle {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-width: 100%;
+    flex: 0 0 calc(33.333% - 1.35rem);
     opacity: 0;
     transform: translateY(20px);
 }
