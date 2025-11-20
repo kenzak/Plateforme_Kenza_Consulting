@@ -221,7 +221,7 @@ function showNotification(message, type = 'success') {
 // CAROUSELS (Testimonials & Portfolio)
 // ============================================
 
-// Simple carousel showing 3 cards at once
+// Simple carousel with arrow buttons only
 function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const carousel = document.querySelector(carouselSelector);
     const container = document.querySelector(containerSelector);
@@ -230,54 +230,29 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     if (!carousel || !container || cards.length === 0) return;
 
     let current = 0;
-    const cardsPerSlide = 3;
 
     function updateCarousel() {
         cards.forEach((card, i) => {
-            const isVisible = i >= current && i < current + cardsPerSlide;
-            card.style.display = isVisible ? 'block' : 'none';
-        });
-
-        // Update indicators - show which "slide" we're on
-        const numSlides = Math.ceil(cards.length / cardsPerSlide);
-        const currentSlide = Math.floor(current / cardsPerSlide);
-
-        document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
-            ind.classList.toggle('active', i === currentSlide);
+            card.style.display = i === current ? 'block' : 'none';
+            card.classList.toggle('active', i === current);
         });
     }
 
     // Initialize
     updateCarousel();
 
-    // Calculate how many slides we have
-    const numSlides = Math.ceil(cards.length / cardsPerSlide);
-
-    // Direct button clicks
+    // Previous button
     document.querySelectorAll('.carousel-prev').forEach(btn => {
         btn.addEventListener('click', () => {
-            const slideIndex = Math.floor(current / cardsPerSlide);
-            if (slideIndex > 0) {
-                current -= cardsPerSlide;
-                updateCarousel();
-            }
+            current = (current - 1 + cards.length) % cards.length;
+            updateCarousel();
         });
     });
 
+    // Next button
     document.querySelectorAll('.carousel-next').forEach(btn => {
         btn.addEventListener('click', () => {
-            const slideIndex = Math.floor(current / cardsPerSlide);
-            if (slideIndex < numSlides - 1) {
-                current += cardsPerSlide;
-                updateCarousel();
-            }
-        });
-    });
-
-    // Indicator clicks
-    document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
-        ind.addEventListener('click', () => {
-            current = i * cardsPerSlide;
+            current = (current + 1) % cards.length;
             updateCarousel();
         });
     });
