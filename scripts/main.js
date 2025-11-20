@@ -221,82 +221,52 @@ function showNotification(message, type = 'success') {
 // CAROUSELS (Testimonials & Portfolio)
 // ============================================
 
+// Simple carousel with working navigation
 function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const carousel = document.querySelector(carouselSelector);
     const container = document.querySelector(containerSelector);
-    const cards = document.querySelectorAll(cardSelector);
+    const cards = Array.from(document.querySelectorAll(cardSelector));
 
     if (!carousel || !container || cards.length === 0) return;
 
-    let currentSlide = 0;
+    let current = 0;
 
-    function showSlide(n) {
-        if (n < 0) n = 0;
-        if (n >= cards.length) n = cards.length - 1;
-        currentSlide = n;
-
-        // Update all cards
-        cards.forEach((card, index) => {
-            if (index === n) {
-                card.classList.add('active');
-                card.style.opacity = '';
-                card.style.transform = '';
-            } else {
-                card.classList.remove('active');
-            }
+    function updateCarousel() {
+        cards.forEach((card, i) => {
+            card.style.display = i === current ? 'block' : 'none';
+            card.classList.toggle('active', i === current);
         });
 
-        // Calculate and apply transform
-        const cardWidth = cards[0].offsetWidth;
-        const styles = window.getComputedStyle(carousel);
-        const gapPixels = parseInt(styles.gap) || 32;
-        const offset = n * (cardWidth + gapPixels);
-        carousel.style.transform = `translateX(-${offset}px)`;
-
         // Update indicators
-        const parentContainer = container.parentElement;
-        const indicators = parentContainer.querySelectorAll('.carousel-indicators .indicator');
-        indicators.forEach((ind, index) => {
-            ind.classList.toggle('active', index === n);
+        document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
+            ind.classList.toggle('active', i === current);
         });
     }
 
     // Initialize
-    showSlide(0);
-    console.log(`✓ Carousel ready: ${cards.length} cards`);
+    updateCarousel();
 
-    // Add click handlers with event delegation on parent
-    const parentContainer = container.parentElement;
-
-    // Buttons
-    parentContainer.addEventListener('click', (e) => {
-        console.log('Click detected on:', e.target.className, e.target.tagName);
-
-        if (e.target.closest('.carousel-prev')) {
-            console.log('PREV CLICKED');
-            currentSlide = (currentSlide - 1 + cards.length) % cards.length;
-            showSlide(currentSlide);
-        }
-        if (e.target.closest('.carousel-next')) {
-            console.log('NEXT CLICKED');
-            currentSlide = (currentSlide + 1) % cards.length;
-            showSlide(currentSlide);
-        }
+    // Direct button clicks
+    document.querySelectorAll('.carousel-prev').forEach(btn => {
+        btn.addEventListener('click', () => {
+            current = (current - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
     });
 
-    // Indicators
-    parentContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('indicator')) {
-            const index = Array.from(e.target.parentElement.children).indexOf(e.target);
-            console.log('INDICATOR CLICKED:', index);
-            showSlide(index);
-        }
+    document.querySelectorAll('.carousel-next').forEach(btn => {
+        btn.addEventListener('click', () => {
+            current = (current + 1) % cards.length;
+            updateCarousel();
+        });
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
-        if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+    // Indicator clicks
+    document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
+        ind.addEventListener('click', () => {
+            current = i;
+            updateCarousel();
+        });
     });
 }
 
