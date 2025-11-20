@@ -221,7 +221,7 @@ function showNotification(message, type = 'success') {
 // CAROUSELS (Testimonials & Portfolio)
 // ============================================
 
-// Simple carousel with working navigation
+// Simple carousel showing 3 cards at once
 function initCarousel(carouselSelector, cardSelector, containerSelector) {
     const carousel = document.querySelector(carouselSelector);
     const container = document.querySelector(containerSelector);
@@ -230,16 +230,20 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     if (!carousel || !container || cards.length === 0) return;
 
     let current = 0;
+    const cardsPerSlide = 3;
 
     function updateCarousel() {
         cards.forEach((card, i) => {
-            card.style.display = i === current ? 'block' : 'none';
-            card.classList.toggle('active', i === current);
+            const isVisible = i >= current && i < current + cardsPerSlide;
+            card.style.display = isVisible ? 'block' : 'none';
         });
 
-        // Update indicators
+        // Update indicators - show which "slide" we're on
+        const numSlides = Math.ceil(cards.length / cardsPerSlide);
+        const currentSlide = Math.floor(current / cardsPerSlide);
+
         document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
-            ind.classList.toggle('active', i === current);
+            ind.classList.toggle('active', i === currentSlide);
         });
     }
 
@@ -249,14 +253,16 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Direct button clicks
     document.querySelectorAll('.carousel-prev').forEach(btn => {
         btn.addEventListener('click', () => {
-            current = (current - 1 + cards.length) % cards.length;
+            const maxStart = Math.max(0, cards.length - cardsPerSlide);
+            current = Math.max(0, current - cardsPerSlide);
             updateCarousel();
         });
     });
 
     document.querySelectorAll('.carousel-next').forEach(btn => {
         btn.addEventListener('click', () => {
-            current = (current + 1) % cards.length;
+            const maxStart = Math.max(0, cards.length - cardsPerSlide);
+            current = Math.min(maxStart, current + cardsPerSlide);
             updateCarousel();
         });
     });
@@ -264,7 +270,7 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
     // Indicator clicks
     document.querySelectorAll('.carousel-indicators .indicator').forEach((ind, i) => {
         ind.addEventListener('click', () => {
-            current = i;
+            current = i * cardsPerSlide;
             updateCarousel();
         });
     });
