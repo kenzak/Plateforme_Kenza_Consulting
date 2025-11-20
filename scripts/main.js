@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .portfolio-card, .value-card, .stat-item, .institution-card, .topic').forEach(el => {
+    document.querySelectorAll('.service-card, .portfolio-card, .value-card, .stat-item, .institution-card, .topic, .testimonial-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'all 0.6s ease forwards';
@@ -216,3 +216,86 @@ function showNotification(message, type = 'success') {
         setTimeout(() => notification.remove(), 300);
     }, 4000);
 }
+
+// ============================================
+// CAROUSELS (Testimonials & Portfolio)
+// ============================================
+
+function initCarousel(carouselSelector, cardSelector, containerSelector) {
+    const carousel = document.querySelector(carouselSelector);
+    const container = document.querySelector(containerSelector);
+    const cards = document.querySelectorAll(cardSelector);
+
+    if (!carousel || !container || cards.length === 0) {
+        console.log('Carousel init failed:', { carousel, container, cards: cards.length });
+        return;
+    }
+
+    let currentSlide = 0;
+    const prevBtn = container.querySelector('.carousel-prev');
+    const nextBtn = container.querySelector('.carousel-next');
+    const indicators = container.querySelectorAll('.indicator');
+
+    function showSlide(n) {
+        if (n < 0) n = 0;
+        if (n >= cards.length) n = cards.length - 1;
+
+        currentSlide = n;
+
+        // Update active classes
+        cards.forEach(card => card.classList.remove('active'));
+        indicators.forEach(ind => ind.classList.remove('active'));
+
+        cards[n].classList.add('active');
+        if (indicators[n]) indicators[n].classList.add('active');
+
+        // Use transform to translate the carousel
+        // Calculate the offset: each card takes up its own width plus gap
+        const cardWidth = cards[0].offsetWidth;
+        const gapValue = 2; // 2rem gap = 32px (assuming 1rem = 16px)
+        const gap = gapValue * 16;
+        const offset = n * (cardWidth + gap);
+
+        carousel.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % cards.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + cards.length) % cards.length;
+        showSlide(currentSlide);
+    }
+
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+        });
+    }
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSlide(index);
+        });
+    });
+
+    // Initialize
+    setTimeout(() => showSlide(0), 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize carousels
+    initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
+    initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
+});
