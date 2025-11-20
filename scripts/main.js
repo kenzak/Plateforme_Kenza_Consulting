@@ -254,8 +254,12 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
         if (indicators[n]) indicators[n].classList.add('active');
 
         // Use transform to translate the carousel
-        // Get the actual position of the card element
-        const offset = cards[n].offsetLeft;
+        // Calculate position based on card width and gap
+        const cardWidth = cards[0].offsetWidth;
+        const styles = window.getComputedStyle(carousel);
+        const gapPixels = parseInt(styles.gap) || 32; // Default to 32px if gap can't be computed
+        const offset = n * (cardWidth + gapPixels);
+
         carousel.style.transform = `translateX(-${offset}px)`;
     }
 
@@ -290,12 +294,24 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
         });
     });
 
-    // Initialize
-    setTimeout(() => showSlide(0), 100);
+    // Initialize with a delay for proper layout calculation
+    window.requestAnimationFrame(() => {
+        setTimeout(() => showSlide(0), 0);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize carousels
-    initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
-    initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
+    // Initialize carousels after layout is calculated
+    setTimeout(() => {
+        initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
+        initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
+    }, 50);
+});
+
+// Also initialize on load to ensure images are loaded
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        initCarousel('.testimonials-carousel', '.testimonial-card', '.testimonials-carousel-container');
+        initCarousel('.portfolio-carousel', '.portfolio-card', '.portfolio-carousel-container');
+    }, 100);
 });
