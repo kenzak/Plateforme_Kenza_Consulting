@@ -237,6 +237,15 @@ function initCarousel(carouselSelector, cardSelector, containerSelector) {
             const isVisible = i >= current && i < current + cardsPerView;
             card.style.display = isVisible ? 'block' : 'none';
         });
+
+        // Ensure all visible cards have equal height
+        setTimeout(() => {
+            const visibleCards = cards.filter((_, i) => i >= current && i < current + cardsPerView);
+            const maxHeight = Math.max(...visibleCards.map(card => card.offsetHeight));
+            visibleCards.forEach(card => {
+                card.style.height = maxHeight + 'px';
+            });
+        }, 0);
     }
 
     // Initialize
